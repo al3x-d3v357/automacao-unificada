@@ -1,0 +1,29 @@
+{
+  "usuario": {
+    "nome_completo": "Alex Sandro Arthur Silva Santos",
+    "handle": "@al3x_d3v357",
+    "github": "https://github.com/al3x-d3v357",
+    "linkedin": "https://www.linkedin.com/in/alex-sandro-arthur-silva-santos-pcd-79b4b5246/",
+    "formacao": "Ciência da Computação",
+    "experiencia_atual": "ONG One by One (rotinas analíticas, conferência, qualidade de dados e plataformas digitais)",
+    "modalidade": "Home Office / Remoto (PcD)",
+    "stack_principal": ["Kotlin", "Jetpack Compose", "Android", "Unity", "C#", "Godot", "Blender", "Python", "Flutter"]
+  },
+  "regras_conteudo": {
+    "social_auto_post": {
+      "emojis": false,
+      "tom": "Casual e autêntico de desenvolvedor/artista 3D",
+      "musica_obrigatoria": false,
+      "cadencia": "Uma postagem por vez"
+    },
+    "youtube": {
+      "visibilidade_padrao": "unlisted",
+      "ferramenta_upload": "youtube-creator-studio/browser.py"
+    }
+  },
+  "caminhos_sessao": {
+    "youtube": "~/.youtube_studio_profile",
+    "social": "~/.social_sessions",
+    "curriculo": "~/.curriculo_sessions"
+  }
+}
