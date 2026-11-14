@@ -14,8 +14,12 @@ pip install -r requirements.txt
 playwright install chromium
 ```
 
-## Autenticação das Contas (Login Único)
+## Autenticação das Contas (Login Único Unificado)
 
-- **YouTube Studio:** `youtube-creator-studio\login.bat` (ou `python youtube-creator-studio\browser.py login`)
-- **Redes Sociais:** `social-auto-post\scripts\login.bat`
-- **Portais de Vagas:** `curriculo-auto-apply\scripts\login.bat`
+Execute o script consolidado na raiz do repositório para conectar qualquer plataforma (Threads, Instagram, X, TikTok, YouTube Studio ou Portais de Vagas):
+
+```powershell
+.\login.bat
+```
+
+*(Dentro de `social-auto-post\scripts\`, o `login.bat` também já unifica Threads, Instagram, X e TikTok em um único arquivo.)*
