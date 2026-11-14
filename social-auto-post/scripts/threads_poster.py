@@ -102,15 +102,16 @@ def post_thread(text: str, media_paths: Optional[List[str]] = None, headless: bo
         )
         context = browser.new_context(
             storage_state=str(SESSION_FILE),
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
-            viewport={"width": 1280, "height": 850}
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+            viewport={"width": 1280, "height": 850},
+            locale="pt-BR"
         )
         page = context.new_page()
 
         try:
-            log("Acessando https://www.threads.net...")
-            page.goto("https://www.threads.net", wait_until="domcontentloaded", timeout=45000)
-            page.wait_for_timeout(3500)
+            log("Acessando https://www.threads.com...")
+            page.goto("https://www.threads.com", wait_until="domcontentloaded", timeout=45000)
+            page.wait_for_timeout(4500)
 
             # Verifica se foi redirecionado para a página de login
             if "login" in page.url:
@@ -134,7 +135,11 @@ def post_thread(text: str, media_paths: Optional[List[str]] = None, headless: bo
                 'div[role="button"]:has-text("Iniciar uma thread")',
                 'div[role="button"]:has-text("Start a thread")',
                 'span:has-text("Iniciar uma thread")',
-                'span:has-text("Start a thread")'
+                'span:has-text("Start a thread")',
+                'span:has-text("Quais são as novidades?")',
+                'div[role="button"]:has-text("Quais são as novidades?")',
+                'span:has-text("What\'s new?")',
+                'div[role="button"]:text-is("Postar")'
             ]
             for sel in selectors:
                 loc = page.locator(sel).first
