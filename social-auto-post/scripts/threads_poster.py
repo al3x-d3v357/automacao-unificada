@@ -111,10 +111,17 @@ def post_thread(text: str, media_paths: Optional[List[str]] = None, headless: bo
         try:
             log("Acessando https://www.threads.com...")
             page.goto("https://www.threads.com", wait_until="domcontentloaded", timeout=45000)
-            page.wait_for_timeout(4500)
+            try:
+                page.wait_for_selector(
+                    'span:has-text("Quais são as novidades?"), [aria-label="Criar"], [aria-label="Create"], [aria-label="New thread"], div[contenteditable="true"]',
+                    timeout=15000,
+                )
+            except Exception:
+                page.wait_for_timeout(4000)
 
-            # Verifica se foi redirecionado para a página de login
-            if "login" in page.url:
+            # Verifica se foi redirecionado para a página de login ou se o modal de login apareceu
+            body_text = page.inner_text("body")
+            if "login" in page.url or "Entre ou cadastre-se" in body_text or "Log in or sign up" in body_text:
                 log("ERRO: A sessão expirou ou não está mais válida no Threads. Execute 'python threads_poster.py --login' novamente.")
                 record_post_history(text, valid_medias, False, "Sessão expirada")
                 browser.close()
